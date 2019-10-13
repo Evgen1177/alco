@@ -25,7 +25,7 @@ SECRET_KEY = '1)#$!hv475f(z-t2139wh9xbtddi07cmgoa--*cjwn*c@98gv&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "alcobeer.herokuapp.com"]
 
 
 # Application definition
