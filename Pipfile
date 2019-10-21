@@ -5,9 +5,11 @@ verify_ssl = true
 
 [packages]
 django = "*"
+dynaconf = {extras = ["yaml"],version = "*"}
 
 [requires]
 python_version = "3.7"
 
 [dev-packages]
 black = "==19.3b0"
+ipython = "*"

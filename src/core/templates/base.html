@@ -2,9 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>alco :: {% block title %}{% endblock %}</title>
+    <title>alco :: {% block title %}XXX{% endblock %}</title>
+    <style>
+        @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css);
+        body {
+            background-color:#000000 ;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-left: 30px;
+            padding-top: 48px;
+        }
+        div {
+            padding: 0;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        a, a:link {
+            color: #a80512;
+        }
+        a:hover {
+            color: white;
+        }
+        a:active {
+            color: orangered;
+        }
+        .here {
+            color: orangered;
+            text-decoration: none;
+        }
+        header {
+            background-color:#C0C0C0 ;
+            height: 48px;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            border-bottom: #01efad 1px solid;
+        }
+        .menu-item {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .logo {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: black 2px solid;
+            font-size: 36px;
+            margin-left: 10px;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+        .pricebox {
+            background-image: url (static/home/jimbeam.jpg);
+            # <!--           <img src="static/home/jimbeam.jpg" width="250" height="300">-->
+            border: black;
+            display: inline-block;
+            height: 200px;
+            margin-right: 30px;
+            margin-top: 30px;
+            position: relative;
+            width: 350px;
+        }
+        .pricebox-logo {
+            color: white;
+            display: inline-block;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 150px;
+            height: 200px;
+            left: 0;
+            opacity: 0.3;
+            position: relative;
+            text-align: center;
+            top: 0;
+            width: 200px;
+            vertical-align: middle;
+        }
+        .pricebox-prices {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            display: inline-block;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 25px;
+            height: 200px;
+            position: relative;
+            right: 0;
+            text-align: right;
+            top: 0;
+            vertical-align: middle;
+            width: 145px;
+        }
+        .pricebox-prices > ul {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+        }
+        .li-byn:after {
+            content: " \20BF";
+        }
+        .li-eur:after {
+            content: " \20ac";
+        }
+        .li-usd:after {
+            content: " $";
+        }
+        .li-rub:after {
+            content: " \20BD";
+        }
+        form > div {
+            display: inline-block;
+            width: 400px;
+            height: 50px;
+        }
+    </style>
 </head>
+
 <body>
-{% block body %}{% endblock %}
+
+<div align="right">
+    <a href="https://github.com/Evgen1177/alco">
+        <img alt="Fork me on GitHub!" src="https://img.shields.io/github/forks/Evgen1177/alco?style=social">
+    </a>
+</div>
+
+<header>
+
+            <a class="logo" href="/" aria-label="Alco"><span class="logo">A</span></a>
+            <span class="menu-item"><a href="/whiskey/">Виски</a></span>
+            <span class="menu-item"><a href="/beer/">Пиво</a></span>
+            <span class="menu-item"><a href="/cocktails/">Коктейли</a></span>
+            <span class="menu-item"><a href="/about/">О проекте</a></span>
+
+<!--    {% url 'about' as u_about %}-->
+<!--    {% url 'actual' as u_actual %}-->
+<!--    {% url 'dynamics' as u_dynamics %}-->
+<!--    {% url 'graphics' as u_graphics %}-->
+<!--    <a class="logo" href="{{u_actual}}"><span>ALCO</span></a>-->
+<!--    <a href="{{u_dynamics}}"-->
+<!--       class="menu-item{% ifequal request.path u_dynamics %} here{% endifequal %}"><span>Виски</span></a>-->
+<!--    <a href="{{u_graphics}}"-->
+<!--       class="menu-item{% ifequal request.path u_graphics %} here{% endifequal %}"><span>Пиво</span></a>-->
+<!--    <a href="{{u_about}}"-->
+<!--       class="menu-item{% ifequal request.path u_graphics %} here{% endifequal %}"><span>Коктейли</span></a>-->
+<!--    <a href="{{u_about}}"-->
+<!--       class="menu-item{% ifequal request.path u_about %} here{% endifequal %}"><span>О ПРОЕКТЕ</span></a>-->
+
+</header>
+
+<h1>{% block page_name%}{% endblock %}</h1>
+
+
+{% for alco in alcos %}
+<div class="pricebox" style="background-color:#0c0c0cfile://">
+    <img src="{{alco.url}}" height="200px">
+    <p>{{alco.description}}</p>
+</div>
+{% endfor %}
+
+<div>
+    {% block content %}{% endblock %}
+</div>
 </body>
+
 </html>
+
+
+

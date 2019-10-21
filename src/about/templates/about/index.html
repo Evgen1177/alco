@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block page_name %}О проекте:{% endblock %}
+
+{% block content %}
+
+<ul style="padding-left: 60px">
+ <p>Версия 1.0</p>
+ <p><a href="{% url 'admin:index' %}">Управление сайтом</a></p>
+ <p>Используемые технологии:</p>
+
+</ul>
+
+<ul style="list-style: initial; padding-left: 100px">
+    {% for tech in technologies %}
+    <li>
+        {% if tech.url %}
+            <a href="{{tech.url}}">
+         {% endif %}
+            {{tech.name}}
+        {% if tech.url %}
+            </a>
+         {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

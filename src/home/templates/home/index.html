@@ -3,7 +3,7 @@
 {% block title %}Main{% endblock %}
 
 {% block body %}
-
+<p><a href="{% url 'admin:index' %}">Управление сайтом</a></p>
 <ul>
     {% for item in data %}
     <li>{{item}}</li>
