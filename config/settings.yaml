@@ -5,7 +5,7 @@ default:
   DATABASE_URL: ""
 
 heroku:
-  DEBUG: false
+  DEBUG: true
   ALLOWED_HOSTS:
     - 127.0.0.1
     - localhost
