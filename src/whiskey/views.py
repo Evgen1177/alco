@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from whiskey.models import Whiskey
+
+
+class whiskeyView(ListView):
+    template_name = "whiskey/index.html"
+    model = Whiskey
+
+
+

@@ -2,12 +2,19 @@
 
 {% block title %}Main{% endblock %}
 
-{% block body %}
-<p><a href="{% url 'admin:index' %}">Управление сайтом</a></p>
-<ul>
-    {% for item in data %}
-    <li>{{item}}</li>
-    {% endfor %}
-</ul>
+{% block content %}
+
+{% for alco in object_list %}
+
+<div class="pricebox" >
+    <h3>{{alco.name}}</h3>
+    <img src="{{alco.url}}" height="200px">
+    {% if 0 %}
+    <p><i>&mdash; {{alco.description}}!</i></p>
+    <p>{{alco.price}} $</p>
+    {% endif %}
+</div>
+
+{% endfor %}
 
 {% endblock %}

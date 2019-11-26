@@ -5,6 +5,15 @@
 {% block page_name %}О виски:{% endblock %}
 
 {% block content %}
+{% for whiskey in object_list %}
+<div class="pricebox">
+    <h3>{{whiskey.drink}}</h3>
+    <h2>{{whiskey.name}}</h2>
+    <img src="{{whiskey.url}}" height="100px">
+    <p><i>&mdash; {{whiskey.description}}!</i></p>
+    <p>{{whiskey.price}} $</p>
+</div>
+{% endfor %}
 
-TODO:
+
 {% endblock %}

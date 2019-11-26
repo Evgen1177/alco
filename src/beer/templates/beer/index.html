@@ -1,11 +1,23 @@
 {% extends "base.html" %}
-
 {% block title %}beer{% endblock %}
+
 
 {% block page_name %}О пиво:{% endblock %}
 
 {% block content %}
+{% for beer in object_list %}
 
-TODO:
+<div class="pricebox" style="background-color:#0c0c0c">
+    <h3>{{beer.drink}}</h3>
+    <h2>{{beer.name}}</h2>
+    <img src="{{beer.url}}" height="200px">
+    <p><i>&mdash; {{beer.description}}!</i></p>
+    <p>{{beer.price}} BYN</p>
+</div>
+
+{% endfor %}
 
 {% endblock %}
+
+
+

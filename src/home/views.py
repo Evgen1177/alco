@@ -1,35 +1,35 @@
-from pathlib import Path
-from platform import system
-# from typing import NamedTuple
+from django import forms
+from django.views.generic import ListView
 
-from django.shortcuts import render
-
+from beer.models import Beer
+from cocktails.models import Cocktails
 from home.models import Alco
+from whiskey.models import Whiskey
 
 
-#class Alco(NamedTuple):
-  # color: str
-   #url = []
-   #description = ""
-   # url = URLField()
-  #  description = TextField()
+class SearchForm(forms.Form):
+    search = forms.CharField()
 
 
-def get_alco():
-    img_dir = Path(__file__).parent / "static" / "home"
-    images = img_dir.glob("*.jp*g")
+class AlcoView(ListView):
+    template_name = "home/index.html"
 
-    result = []
+    def get_context_data(self, *, object_list=None, **kwargs):
+        ctx = super().get_context_data(object_list=object_list, **kwargs)
+        ctx["search_form"] = SearchForm()
+        return ctx
 
-    for image in images:
-        alco = Alco(url=f"static/home/{image.name}", description=f"Image {image.name}")
-        result.append(alco)
+    def get_queryset(self):
+        f = SearchForm(self.request.GET)
 
-    return result
+        result = []
 
+        for model in (Whiskey, Beer, Cocktails):
+            future_alcos = model.objects.all()
+            if f.is_valid():
+                future_alcos = future_alcos.filter(name=f.data["search"])
 
-def index(request):
-    return render(request, "home/index.html", {
-       #  "alcos": get_alco(),
-        "alcos": Alco.objects.all(),
-    })
+            for obj in future_alcos:
+                result.append(obj)
+
+        return result

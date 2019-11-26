@@ -1,0 +1,1 @@
+from .whiskey import Whiskey

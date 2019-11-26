@@ -5,6 +5,18 @@
 {% block page_name %}О коктейли:{% endblock %}
 
 {% block content %}
+{% for cocktails in object_list %}
 
-TODO:
+<div class="pricebox" style="background-color:#0c0c0c">
+    <h3>{{cocktails.drink}}</h3>
+    <h2>{{cocktails.name}}</h2>
+    <div style="width: 250px; height: 250px; background: url({{cocktails.url}}) right center no-repeat; background-size: cover;"></div>
+<!--    <img src="{{cocktails.url}}" height="250px">-->
+    <p><i>&mdash; {{cocktails.description}}!</i></p>
+    <p>{{cocktails.price}} $</p>
+</div>
+
+{% endfor %}
+
+
 {% endblock %}

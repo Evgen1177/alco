@@ -6,7 +6,7 @@
     <style>
         @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css);
         body {
-            background-color:#000000 ;
+            background-color:#000000;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
             padding-left: 30px;
@@ -21,10 +21,10 @@
             list-style: none;
         }
         a, a:link {
-            color: #a80512;
+            color:#a80512;
         }
         a:hover {
-            color: white;
+            color: black;
         }
         a:active {
             color: orangered;
@@ -55,16 +55,20 @@
             margin-right: 10px;
             text-decoration: none;
         }
+        .pricebox-wrap {
+            display:flex;
+            flex-wrap: wrap;
+        }
         .pricebox {
-            background-image: url (static/home/jimbeam.jpg);
-            # <!--           <img src="static/home/jimbeam.jpg" width="250" height="300">-->
-            border: black;
-            display: inline-block;
-            height: 200px;
-            margin-right: 30px;
-            margin-top: 30px;
+            border: 1px white solid;
+            display: block;
+            margin-right: 2%;
+            margin-top: 2%;
             position: relative;
-            width: 350px;
+            width: 31.5%;
+        }
+        .pricebox:nth-child(3n) {
+            margin-right: 0;
         }
         .pricebox-logo {
             color: white;
@@ -153,17 +157,17 @@
 
 <h1>{% block page_name%}{% endblock %}</h1>
 
+{% if 1 %}
+<form method="get" action="{% url 'index' %}">
+    {{search_form.as_p}}
+    <input type="submit" value="FIND">
+</form>
+{% endif %}
 
-{% for alco in alcos %}
-<div class="pricebox" style="background-color:#0c0c0cfile://">
-    <img src="{{alco.url}}" height="200px">
-    <p>{{alco.description}}</p>
-</div>
-{% endfor %}
-
-<div>
+<div class="pricebox-wrap">
     {% block content %}{% endblock %}
 </div>
+
 </body>
 
 </html>
