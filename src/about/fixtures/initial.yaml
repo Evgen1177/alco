@@ -1,0 +1,43 @@
+- model: about.technology
+  pk: 1
+  fields:
+    name: Python
+    url: https://www.python.org/
+- model: about.technology
+  pk: 2
+  fields:
+    name: HEROKU
+    url: https://heroku.com/
+- model: about.technology
+  pk: 3
+  fields:
+    name: Django
+    url: https://www.djangoproject.com/
+- model: about.technology
+  pk: 4
+  fields:
+    name: Dynaconf
+    url: https://dynaconf.readthedocs.io/en/latest/reference/dynaconf.html
+- model: home.alco
+  pk: 1
+  fields:
+    name: "\u0432\u0438\u0441\u043A\u0438"
+    price: '1.00'
+    description: "\u043A\u043B\u0430\u0441\u0441\u043D\u044B\u0439 \u0432\u0438\u0441\
+      \u043A\u0438"
+    url: https://www.whisky.fr/media/catalog/product/cache/1/image/290x420/9df78eab33525d08d6e5fb8d27136e95/m/1/m1620_4.jpg
+- model: home.alco
+  pk: 2
+  fields:
+    name: "\u041F\u0438\u0432\u043E"
+    price: '2.00'
+    description: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E\u0435 \u043F\u0438\u0432\
+      \u043E"
+    url: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Fuller%27s_London_Porter.1.JPG/330px-Fuller%27s_London_Porter.1.JPG
+- model: home.alco
+  pk: 3
+  fields:
+    name: "\u041A\u043E\u043A\u0442\u0435\u0439\u043B\u044C"
+    price: '3.00'
+    description: "\u041F\u0438\u043D\u0430 \u043A\u043E\u043B\u0430\u0434\u0430"
+    url: http://127.0.0.1:8000/static/home/pinacolada.jpg
