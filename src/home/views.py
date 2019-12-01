@@ -1,5 +1,6 @@
 from django import forms
 from django.views.generic import ListView
+from django.db.models import Q
 
 from beer.models import Beer
 from cocktails.models import Cocktails
@@ -27,8 +28,9 @@ class AlcoView(ListView):
         for model in (Whiskey, Beer, Cocktails):
             future_alcos = model.objects.all()
             if f.is_valid():
-                future_alcos = future_alcos.filter(name=f.data["search"])
-
+                future_alcos = future_alcos.filter(name__istartswith =f.data["search"])
+               # future_alcos = future_alcos.filter(name=f.data["search"])
+                #future_alcos = future_alcos.filter(Q(name=f.data["search"]) | Q(name__icontains=query))
             for obj in future_alcos:
                 result.append(obj)
 
