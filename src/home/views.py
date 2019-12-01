@@ -27,7 +27,7 @@ class AlcoView(ListView):
         for model in (Whiskey, Beer, Cocktails):
             future_alcos = model.objects.all()
             if f.is_valid():
-                future_alcos = future_alcos.filter(name=f.data["search"])
+                future_alcos = future_alcos.filter(name__icontains==f.data["search"])
 
             for obj in future_alcos:
                 result.append(obj)
