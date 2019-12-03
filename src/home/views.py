@@ -20,7 +20,7 @@ class AlcoView(ListView):
         ctx["search_form"] = SearchForm()
         return ctx
 
-    def get_queryset(self):
+    def get_queryset(self, name__icontains=None):
         f = SearchForm(self.request.GET)
 
         result = []
@@ -29,6 +29,7 @@ class AlcoView(ListView):
             future_alcos = model.objects.all()
             if f.is_valid():
                 future_alcos = future_alcos.filter(name__istartswith =f.data["search"])
+               #future_alcos = future_alcos.filter(name__icontains == f.data["search"])
                # future_alcos = future_alcos.filter(name=f.data["search"])
                 #future_alcos = future_alcos.filter(Q(name=f.data["search"]) | Q(name__icontains=query))
             for obj in future_alcos:
